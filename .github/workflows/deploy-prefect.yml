@@ -30,4 +30,4 @@ jobs:
 
       - name: Deploy the specific flow
         run: |
-          prefect deploy --name test_prefect_deploy_2
+          prefect deploy flows/myflow.py
