@@ -3,7 +3,7 @@ from prefect import flow
 
 @flow
 def my_flow() -> str:
-    print "Welcome to our first flow!"
+    print("Welcome to our first flow!")
     return "Hello, world!"
 
 if __name__ == "__main__":
