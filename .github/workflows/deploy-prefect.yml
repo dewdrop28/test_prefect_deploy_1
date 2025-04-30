@@ -1,0 +1,37 @@
+name: Deploy Prefect Flow
+
+on:
+  push:
+    paths:
+      - 'flows/**'
+      - 'deployment.yaml'
+      - '.github/workflows/deploy-prefect.yml'
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install prefect
+      
+      - name: Authenticate with Prefect Cloud
+        run: |
+          prefect cloud login --key ${{ secrets.PREFECT_API_KEY }} \
+                              --account-id ${{ secrets.PREFECT_ACCOUNT_ID }} \
+                              --workspace-id ${{ secrets.PREFECT_WORKSPACE_ID }}
+
+      - name: Deploy flow to Prefect
+        run: |
+          prefect deploy --all
