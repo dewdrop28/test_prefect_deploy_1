@@ -1,10 +1,7 @@
-from prefect import flow
+from prefect import flow, task, get_run_logger
 
 
-@flow
-def my_flow() -> str:
-    print("Welcome to our first flow!")
-    return "Hello, world!"
-
-if __name__ == "__main__":
-    my_flow()
+@flow(name="My Flow", description="My flow description", log_prints=True) 
+def my_flow():
+    print("Hello and Welcome!")
+    get_run_logger().info("Hello and Welcome!")
