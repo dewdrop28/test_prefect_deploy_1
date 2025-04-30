@@ -3,7 +3,7 @@ name: Deploy myflow
 on:
   push:
     paths:
-      - 'flows/my_specific_flow.py'  # This will trigger only when the specific flow is modified
+      - 'flows/myflow.py'  # This will trigger only when the specific flow is modified
     branches:
       - main
 
