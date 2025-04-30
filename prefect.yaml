@@ -1,2 +1,17 @@
 name: test_prefect_deploy_2
 prefect-version: 3.3.7
+
+# the deployments section allows you to provide configuration for deploying flows
+deployments:
+- name: my_deployment
+  version: null
+  tags: []
+  description: null
+  schedule: {}
+  flow_name: 
+  entrypoint: myflow.py:my_flow
+  parameters: {}
+  work_pool:
+    name: DewDrop_Pool
+    work_queue_name: null
+    job_variables: {}
