@@ -28,12 +28,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install prefect
 
-      - name: Authenticate with Prefect Cloud
-        run: |
-          prefect cloud login --key ${{ secrets.PREFECT_API_KEY }} \
-                              --account-id ${{ secrets.PREFECT_ACCOUNT_ID }} \
-                              --workspace-id ${{ secrets.PREFECT_WORKSPACE_ID }}
-
       - name: Deploy the specific flow
         run: |
           prefect deploy --name test_prefect_deploy_2 --path flows/myflow.py
