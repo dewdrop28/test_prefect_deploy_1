@@ -29,7 +29,7 @@ jobs:
         env:
           PREFECT_API_KEY: ${{ secrets.PREFECT_API_KEY }}
         
-        run: prefect cloud login --key $PREFECT_API_KEY --workspace "https://app.prefect.cloud/account/${{ secrets.PREFECT_ACCOUNT_ID }}/workspace/${{ secrets.PREFECT_WORKSPACE_ID }}"
+        run: prefect cloud login --key $PREFECT_API_KEY --workspace dew-drop/default
 
       - name: Deploy the specific flow
         run: |
