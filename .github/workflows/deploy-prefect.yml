@@ -24,12 +24,12 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install prefect
-    
-      - name: Set Prefect Cloud API Key
-        run: prefect config set PREFECT_API_KEY=${{ secrets.PREFECT_API_KEY }}
 
       - name: Prefect Cloud Login
-        run: prefect cloud login --workspace "https://app.prefect.cloud/account/${{ secrets.PREFECT_ACCOUNT_ID }}/workspace/${{ secrets.PREFECT_WORKSPACE_ID }}"
+        env:
+          PREFECT_API_KEY: ${{ secrets.PREFECT_API_KEY }}
+        
+        run: prefect cloud login --key $PREFECT_API_KEY --workspace "https://app.prefect.cloud/account/${{ secrets.PREFECT_ACCOUNT_ID }}/workspace/${{ secrets.PREFECT_WORKSPACE_ID }}"
 
       - name: Deploy the specific flow
         run: |
