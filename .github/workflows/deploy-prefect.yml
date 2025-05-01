@@ -28,9 +28,9 @@ jobs:
       - name: Set Prefect Cloud API Key
         run: prefect config set PREFECT_API_KEY=${{ secrets.PREFECT_API_KEY }}
 
-      - name: Set Prefect Cloud workspace
-        run: prefect cloud workspace set --account ${{ secrets.PREFECT_ACCOUNT_ID }} --workspace ${{ secrets.PREFECT_WORKSPACE_ID }}
-      
+      - name: Prefect Cloud Login
+        run: prefect cloud login --workspace "https://app.prefect.cloud/account/${{ secrets.PREFECT_ACCOUNT_ID }}/workspace/${{ secrets.PREFECT_WORKSPACE_ID }}"
+
       - name: Deploy the specific flow
         run: |
           prefect deploy flows/myflow.py:my_flow --name=test_prefect_deploy_2 --pool=DewDrop_Pool
