@@ -32,5 +32,6 @@ jobs:
         run: prefect cloud login --key $PREFECT_API_KEY --workspace dew-drop/default
 
       - name: Deploy the specific flow
+        working-directory: ${{ github.workspace }}
         run: |
           prefect deploy flows/myflow.py:my_flow --name=test_prefect_deploy_2 --pool=DewDrop_Pool

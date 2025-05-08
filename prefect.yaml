@@ -1,3 +1,2 @@
 name: test_prefect_deploy_2
 prefect-version: 3.3.7
-working_dir: flows
