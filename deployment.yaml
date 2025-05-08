@@ -4,3 +4,5 @@ storage:
       repository: "dewdrop28/test_prefect_deploy_1"
       path: "flows/myflow.py"
       access_token: "{{ prefect.blocks.secret.github-token }}"
+ 
+entrypoint: flows/myflow.py:my_flow
