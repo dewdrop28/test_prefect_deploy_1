@@ -37,6 +37,6 @@ jobs:
 
       - name: Deploy the specific flow
         run: |
-          prefect deploy --all
+          prefect deploy --all --env GITHUB_REPO="${{ env.GITHUB_REPO }}" --env GITHUB_BRANCH="${{ env.GITHUB_BRANCH }}"
           
 #prefect deploy flows/myflow.py:my_flow --name=test_prefect_deploy_2 --pool=DewDrop_Pool
