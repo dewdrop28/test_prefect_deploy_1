@@ -31,6 +31,6 @@ jobs:
         
         run: prefect cloud login --key $PREFECT_API_KEY --workspace dew-drop/default
 
-      - name: Deploy to Prefect
+      - name: Deploy all flows
         run: |
-          python create_deployment.py
+          python deploy_flows.py
