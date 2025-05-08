@@ -24,7 +24,7 @@ def deploy_all_flows():
             mod = import_module(module_name)
             flow_fn = getattr(mod, FLOW_FUNCTION_NAME)
 
-            logger.info(f"Deploying flow from {module_name}.{FLOW_FUNCTION_NAME}...")
+            #logger.info(f"Deploying flow from {module_name}.{FLOW_FUNCTION_NAME}...")
             
             github_credentials = GitHubCredentials(token=GITHUB_TOKEN)
             
