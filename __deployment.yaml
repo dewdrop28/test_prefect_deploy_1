@@ -5,4 +5,4 @@ storage:
       path: "flows/myflow.py"
       access_token: "{{ prefect.blocks.secret.github-token }}"
 
-working_dir: flows
+working_dir: .
