@@ -7,14 +7,16 @@ on:
     branches:
       - main
 
-env:
-  GITHUB_REPO: "https://github.com/dewdrop28/test_prefect_deploy_1.git"
-  GITHUB_BRANCH: "main"
+
   
 jobs:
   deploy:
     runs-on: ubuntu-latest
     
+    env:
+      GITHUB_REPO: "https://github.com/dewdrop28/test_prefect_deploy_1.git"
+      GITHUB_BRANCH: "main"
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
