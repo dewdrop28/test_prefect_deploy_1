@@ -1,3 +1,4 @@
 name: test_prefect_deploy_2
 prefect-version: 3.3.7
 
+entrypoint: flows/myflow.py:my_flow
