@@ -1,2 +1,18 @@
 name: test_prefect_deploy_2
 prefect-version: 3.3.7
+
+deployments:
+  - name: my-flow
+    entrypoint: flows/myflow.py:my_flow
+    work_pool:
+      name: DewDrop_Pool
+    tags: []
+    parameters: {}
+    storage:
+      type: github
+      config:
+        repository: dewdrop28/test_prefect_deploy_1
+        reference: main
+        access_token: null
+        path: flows/myflow.py
+    working_dir: .
