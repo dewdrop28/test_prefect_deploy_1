@@ -10,6 +10,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    
+    env:
+      GITHUB_REPO: "https://github.com/dewdrop28/test_prefect_deploy_1.git"
+      GITHUB_BRANCH: "main"
 
     steps:
       - name: Checkout repository
@@ -31,6 +35,6 @@ jobs:
         
         run: prefect cloud login --key $PREFECT_API_KEY --workspace dew-drop/default
 
-      - name: Deploy to Prefect
+      - name: Deploy the specific flow
         run: |
-          python create_deployment.py
+          prefect deploy --all
