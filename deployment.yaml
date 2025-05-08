@@ -1,8 +1,5 @@
 name: "my-flow"
 storage:
-  - prefect.filesystems.GitHub:
-      repository: "dewdrop28/test_prefect_deploy_1"
-      path: "flows/myflow.py"
-      access_token: "{{ prefect.blocks.secret.github-token }}"
+  block: prefect_github.repository.GitHubRepository/github-repo-dewdrop-block
 
 working_dir: flows
