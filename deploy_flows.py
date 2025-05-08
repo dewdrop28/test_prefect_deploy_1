@@ -26,7 +26,6 @@ def deploy_all_flows():
             deployment = flow_fn.deploy(
                 name=f"{module_path.name}-deployment",
                 work_pool_name=WORK_POOL_NAME,
-                path=".",
                 tags=["ci", module_path.name]
             )
 
