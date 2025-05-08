@@ -6,8 +6,6 @@ on:
       - 'flows/myflow.py'  # This will trigger only when the specific flow is modified
     branches:
       - main
-
-
   
 jobs:
   deploy:
