@@ -1,2 +1,5 @@
 prefect>=3.3.7
 prefect-github
+prefect-blocks
+prefect-azure
+azure-storage-blob
