@@ -33,4 +33,4 @@ jobs:
 
       - name: Deploy all flows
         run: |
-          python deploy_specific_flow_from_github.py new_deployment_from_github flows myflow.py flow_entry DewDrop_Pool github-token
+          python deploy_specific_flow_from_github.py deployment_read_blob flows read_azure_blob_flow.py azure_blob_flow DewDrop_Pool github-token
