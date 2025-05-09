@@ -26,7 +26,8 @@ def deploy_flow(deployment_name, flows_dir, flow_file_name, flow_function_name, 
             deployment = flow_fn.from_source(source=source, entrypoint=f"./{flows_dir}/{module_path}.py:{flow_function_name}").deploy(
                 name=f"{deployment_name}",
                 work_pool_name=work_pool_name,
-                tags=["ci", module_path]
+                tags=["ci", module_path],
+                install_requires=["prefect-azure", "azure-storage-blob"]
             )
 
             logger.info(f"✅ Deployed: {deployment_name}")
