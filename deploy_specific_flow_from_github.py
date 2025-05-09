@@ -27,7 +27,15 @@ def deploy_flow(deployment_name, flows_dir, flow_file_name, flow_function_name, 
                 name=f"{deployment_name}",
                 work_pool_name=work_pool_name,
                 tags=["ci", module_path],
-                install_requires=["prefect-azure", "azure-storage-blob"]
+                infrastructure_overrides={
+                    "install_requires": [
+                        "prefect-azure",
+                        "azure-storage-blob"
+                    ],
+                    "env": {
+                        "PREFECT_LOGGING_LEVEL": "DEBUG"
+                    }
+                }
             )
 
             logger.info(f"✅ Deployed: {deployment_name}")
