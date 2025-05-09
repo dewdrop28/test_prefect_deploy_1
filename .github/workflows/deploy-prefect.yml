@@ -1,4 +1,4 @@
-name: Deploy myflow
+name: Deploy All Flows
 
 on:
   push:
@@ -33,4 +33,4 @@ jobs:
 
       - name: Deploy all flows
         run: |
-          python deploy_flows.py
+          python deploy_specific_flow_from_github.py new_deployment_from_github flows myflow.py flow_entry DewDrop_Pool github-token

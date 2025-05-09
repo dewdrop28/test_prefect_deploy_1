@@ -8,7 +8,7 @@ from prefect.runner.storage import GitRepository
 # Configuration
 FLOWS_DIR = "flows"
 WORK_POOL_NAME = "DewDrop_Pool"
-FLOW_FUNCTION_NAME = "flow_start" # Assumes each file defines a flow named `flow_start`
+FLOW_FUNCTION_NAME = "flow_entry" # Assumes each file defines a flow named `flow_start`
 GITHUB_TOKEN = "github-token"
 
 logger = get_logger()
